@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TesterControladorDeErros",
+            "request": "launch",
+            "mainClass": "TesterControladorDeErros",
+            "projectName": "Joguinho"
+        }
+    ]
+}
