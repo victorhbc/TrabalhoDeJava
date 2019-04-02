@@ -1,4 +1,4 @@
-import com.sun.org.apache.xml.internal.utils.StringComparable;
+//import com.sun.org.apache.xml.internal.utils.StringComparable;
 
 class ControladorDeLetrasJaDigitadas implements Cloneable
 {
@@ -12,7 +12,7 @@ class ControladorDeLetrasJaDigitadas implements Cloneable
     public boolean isJaDigitada (char ltr)
     {
         for (int i = 0; i < jaForam.length(); i++) {
-            if (jaForam.charAt(i) == ltr)
+            if (this.jaForam.charAt(i) == ltr)
                 return true;
         }
 
@@ -23,6 +23,12 @@ class ControladorDeLetrasJaDigitadas implements Cloneable
         // ou false em caso negativo
 
     }
+
+    /*public void setJaForam(String jaForam) {
+        this.jaForam = jaForam;
+    }
+    // para que fosse possivel testar o método isJaDigitada foi necessário cria esse método*/
+
 
     public void registreUmaLetra (char ltr) throws Exception
     {
@@ -59,11 +65,11 @@ class ControladorDeLetrasJaDigitadas implements Cloneable
         if (this.getClass() == obj.getClass())
             return true;
 
-        ControladorDeLetrasJaDigitadas controlador = (ControladorDeLetrasJaDigitadas)obj;
+        ControladorDeLetrasJaDigitadas controlador = (ControladorDeLetrasJaDigitadas ) obj;
         if (!this.jaForam.equals(controlador.jaForam));
             return false;
 
-        return true;
+        //return true; /* VERIFICAR ESSE ERRO de pq pq precissa comentar aqui*/
 
         // verificar se this e obj s�o iguais
 
@@ -103,6 +109,6 @@ class ControladorDeLetrasJaDigitadas implements Cloneable
         return ret;
 
         // retornar uma copia de this
-        
+
     }
 }
