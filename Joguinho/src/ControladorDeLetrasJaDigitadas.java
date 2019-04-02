@@ -1,60 +1,108 @@
-// class ControladorDeLetrasJaDigitadas implements Cloneable
-// {
-//     private String jaForam;
+import com.sun.org.apache.xml.internal.utils.StringComparable;
 
-//     public ControladorDeLetrasJaDigitadas ()
-//     {
-//         this.jaForam="";
-//     }
+class ControladorDeLetrasJaDigitadas implements Cloneable
+{
+    private String jaForam;
 
-//     public boolean isJaDigitada (char ltr)
-//     {
-//         // percorrer o String jaForam e verificar se o mesmo
-//         // possui a letra ltr, retornando true em caso afirmativo
-//         // ou false em caso negativo
-//     }
+    public ControladorDeLetrasJaDigitadas ()
+    {
+        this.jaForam="";
+    }
 
-//     public void registreUmaLetra (char ltr) throws Exception
-//     {
-//         if (this.isJaDigitada (ltr))
-//             throw new Exception ("Tentativa de registra letra ja registrada!");
+    public boolean isJaDigitada (char ltr)
+    {
+        for (int i = 0; i < jaForam.length(); i++) {
+            if (jaForam.charAt(i) == ltr)
+                return true;
+        }
 
-//         this.jaForam = this.jaForam+ltr;
-//     }
+        return false;
 
-//     public String toString ()
-//     {
-//         if (this.jaForam.compareTo ("") == 0)
-//             return "";
+        // percorrer o String jaForam e verificar se o mesmo
+        // possui a letra ltr, retornando true em caso afirmativo
+        // ou false em caso negativo
 
-//         String saida = "";
-//         int i;
+    }
 
-//         for (i=0; i<this.jaForam.length()-1; i++)
-//             saida = saida + this.jaForam.charAt (i) + ", ";
+    public void registreUmaLetra (char ltr) throws Exception
+    {
+        if (this.isJaDigitada (ltr))
+            throw new Exception ("Tentativa de registra letra ja registrada!");
 
-//         saida = saida + this.jaForam.charAt (i);
+        this.jaForam = this.jaForam+ltr;
+    }
 
-//         return saida;
-//     }
+    public String toString ()
+    {
+        if (this.jaForam.compareTo ("") == 0)
+            return "";
 
-//     public boolean equals (Object obj)
-//     {
-//         // verificar se this e obj s�o iguais
-//     }
+        String saida = "";
+        int i;
 
-//     public int hashCode ()
-//     {
-//         // calcular e retornar o hashcode de this
-//     }
+        for (i=0; i<this.jaForam.length()-1; i++)
+            saida = saida + this.jaForam.charAt (i) + ", ";
 
-//     public ControladorDeLetrasJaDigitadas (ControladorDeLetrasJaDigitadas c) throws Exception // construtor de c�pia
-//     {
-//         // copiar c.jaForam em this.jaForam
-//     }
+        saida = saida + this.jaForam.charAt (i);
 
-//     public Object clone ()
-//     {
-//         // retornar uma copia de this
-//     }
-// }
+        return saida;
+    }
+
+    public boolean equals (Object obj)
+    {
+        if (this == obj)
+            return true;
+
+        if (obj == null)
+            return false;
+
+        if (this.getClass() == obj.getClass())
+            return true;
+
+        ControladorDeLetrasJaDigitadas controlador = (ControladorDeLetrasJaDigitadas)obj;
+        if (!this.jaForam.equals(controlador.jaForam));
+            return false;
+
+        return true;
+
+        // verificar se this e obj s�o iguais
+
+    }
+
+    public int hashCode ()
+    {
+        int ret = 1; 
+
+        ret = ret * 2 + this.jaForam.hashCode();/* NESSE CASO USAR O THIS? */
+
+        return ret;
+
+        // calcular e retornar o hashcode de this
+
+    }
+
+    public ControladorDeLetrasJaDigitadas (ControladorDeLetrasJaDigitadas c) throws Exception // construtor de c�pia
+    {
+        if(c == null)
+            throw new Exception("Modelo Ausente");
+        
+        this.jaForam = c.jaForam;
+
+        // copiar c.jaForam em this.jaForam
+    
+    }
+
+    public Object clone ()
+    {
+        ControladorDeLetrasJaDigitadas ret = null;
+
+        try {
+            ret = new ControladorDeLetrasJaDigitadas(this);
+        } catch (Exception e) {}
+
+        return ret;
+
+        // retornar uma copia de this
+        
+    }
+}
