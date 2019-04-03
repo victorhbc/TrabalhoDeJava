@@ -56,6 +56,11 @@
 
 //     public Tracinhos (Tracinhos t) throws Exception // construtor de c�pia
 //     {
+
+//         for (int i = 0; i < t.texto.length; i++){
+//             this.texto[i] = t.texto[i];
+//         }
+
 //         // intanciar this.texto um vetor com o mesmo tamanho de t.texto
 //         // e copilar o conte�do de t.texto para this.texto
 //     }

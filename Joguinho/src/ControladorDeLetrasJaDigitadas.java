@@ -62,14 +62,14 @@ class ControladorDeLetrasJaDigitadas implements Cloneable
         if (obj == null)
             return false;
 
-        if (this.getClass() == obj.getClass())
-            return true;
-
-        ControladorDeLetrasJaDigitadas controlador = (ControladorDeLetrasJaDigitadas ) obj;
-        if (!this.jaForam.equals(controlador.jaForam));
+        if (this.getClass() != obj.getClass())
             return false;
 
-        //return true; /* VERIFICAR ESSE ERRO de pq pq precissa comentar aqui*/
+        ControladorDeLetrasJaDigitadas controlador = (ControladorDeLetrasJaDigitadas)obj;
+        if (!this.jaForam.equals(controlador.jaForam))
+            return false;
+
+        return true; 
 
         // verificar se this e obj s�o iguais
 
