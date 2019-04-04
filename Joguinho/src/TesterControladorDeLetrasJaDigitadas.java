@@ -3,15 +3,6 @@ class TesterControladorDeLetrasJaDigitadas{
     public static void main(String[] args) {
         try {
             ControladorDeLetrasJaDigitadas c1 = new ControladorDeLetrasJaDigitadas();
-            /* Para testar o método isJaDigitada é necessário descomentar da linha 10 
-            a linha 16 dessa classe e da linha 7 a linha 8 da classe 
-            ControladorDeLetrasJaDigitadas */
-
-            /* c1.setJaForam("lalala");
-            if (c1.isJaDigitada('a'))
-                System.out.println("letra já digitada");
-            else
-                System.out.println("Letra não digitada"); */
 
             if (c1.isJaDigitada(' '))
                 System.out.println("letra já digitada");

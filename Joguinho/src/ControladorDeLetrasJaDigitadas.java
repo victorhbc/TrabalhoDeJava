@@ -1,5 +1,3 @@
-//import com.sun.org.apache.xml.internal.utils.StringComparable;
-
 class ControladorDeLetrasJaDigitadas implements Cloneable
 {
     private String jaForam;
@@ -23,12 +21,6 @@ class ControladorDeLetrasJaDigitadas implements Cloneable
         // ou false em caso negativo
 
     }
-
-    /*public void setJaForam(String jaForam) {
-        this.jaForam = jaForam;
-    }
-    // para que fosse possivel testar o método isJaDigitada foi necessário cria esse método*/
-
 
     public void registreUmaLetra (char ltr) throws Exception
     {
