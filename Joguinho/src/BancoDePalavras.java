@@ -45,8 +45,11 @@ public class BancoDePalavras
         
         BancoDePalavras palavra = (BancoDePalavras)obj;
 
-        if (this.banco != palavra.banco)
+        for (int i = 0; i < this.banco.length; i++)
+        {
+          if (this.banco[i] != palavra.banco[i])
             return false;
+        }
         
         return true;
 
@@ -59,7 +62,7 @@ public class BancoDePalavras
         int ret = 1;
         ret = ret * 2 + banco.hashCode();
 
-        return ret;
+        return ret < 0 ? -ret : ret;
         // calcular e retornar o hashcode de this
     }
 }

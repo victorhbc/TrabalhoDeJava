@@ -25,8 +25,8 @@ class Tracinhos implements Cloneable
     {
         for(char percorre: this.texto) //variavel percorre o texto
         {
-            if (percorre =='_')//verificar underlines
-                return true;//caso haja underline, retorne true
+            if (percorre == '_') //verificar underlines
+                return true; //caso haja underline, retorne true
         }
         return false;
     }
@@ -55,6 +55,17 @@ class Tracinhos implements Cloneable
         if(this.getClass() !=obj.getClass())
             return false;
 
+        Tracinhos tracinho = (Tracinhos)obj;
+
+        if(this.texto.length != tracinho.texto.length)
+            return false;
+
+        for(int i=0; i<this.texto.length; i++)
+        {
+            if(this.texto[i] != tracinho.texto[i])
+                return false;
+        }
+
             return true;
         // verificar se this e obj possuem o mesmo conte�do, retornando
         // true no caso afirmativo ou false no caso negativo
@@ -66,16 +77,18 @@ class Tracinhos implements Cloneable
         for(char c : this.texto){//sintaxe que serve apenas caso o vetor esteja cheio
         ret = ret * 2 + new Character(c).hashCode();
         }
-        return ret;
+        return ret < 0 ? -ret : ret;
         // calcular e retornar o hashcode de this
     }
 
-    public Tracinhos (Tracinhos t) throws Exception{ 
-    this.texto = new char[t.texto.length];
+    public Tracinhos (Tracinhos t) throws Exception
+    { 
+        this.texto = new char[t.texto.length];
     
-        for( int i = 0; i < t.texto.length;i++){
+        for( int i = 0; i < t.texto.length;i++)
+        {
         this.texto[i] = t.texto[i];
-    }
+        }
         
         // instanciar this.texto um vetor com o mesmo tamanho de t.texto
         // e copilar o conteudo de t.texto para this.texto

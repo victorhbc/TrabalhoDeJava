@@ -34,22 +34,18 @@ class Palavra implements Comparable<Palavra>
 
     	int j = 0;
 
-    	try 
-    	{
-    		for (int i = 0; i < this.texto.length(); i++)
+		for (int i = 0; i < this.texto.length(); i++)
+		{
+    		if (this.texto.charAt(i) == ltr)
     		{
-	    		if (this.texto.charAt(i) == ltr)
-	    		{
-	    			posicoes[j] = i;
-	    		    j++;
-    			}
-    		}
-    	}
-    	catch (NumberFormatException erro)
-    	{
-    		throw new Exception ("Letra nao encontrada!");
-    	}
+    			posicoes[j] = i;
+    		    j++;
+			}
+		}
     	
+        if(posicoes.length == 0)
+    		throw new Exception ("Letra nao encontrada!");
+
     	return posicoes[ord];
 
         // se ord==0, retorna a posicao em que ocorre
@@ -83,7 +79,20 @@ class Palavra implements Comparable<Palavra>
         
     if(this.getClass() != obj.getClass())
         return false;
-        
+    
+    Palavra palavra = (Palavra) obj;
+
+    if(this.texto.length() != palavra.texto.length())
+        return false;
+
+    for(int i=0; i<this.texto.length(); i++)
+    {
+        if(this.texto.charAt(i) != palavra.texto.charAt(i))
+        {
+            return false;
+        }
+    }
+
     return true;
         // verificar se this e obj possuem o mesmo conte�do, retornando
         // true no caso afirmativo ou false no caso negativo
@@ -94,7 +103,7 @@ class Palavra implements Comparable<Palavra>
         int ret = 1;
         ret = ret * 2 + texto.hashCode();
 
-        return ret;
+        return ret < 0 ? -ret : ret;
     }
 
     public int compareTo (Palavra p)
